@@ -1,0 +1,15 @@
+pipeline{
+    agent (lable "deploymentServer")
+    stages{
+        stage("scm-checkout"){
+            steps{
+                git 'https://github.com/arvind61h/MERN_Stack_Project_Ecommerce_Hayroo.git'
+            }
+        }
+        stage("DeployApplication"){
+            steps{
+                sh 'docker-compose up'
+            }
+        }
+    }
+}

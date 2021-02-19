@@ -1,0 +1,12 @@
+FROM node
+
+MAINTAINER devops0123@gmail.com
+
+#change working directory ifnot create
+WORKDIR /webapp/server
+
+COPY server/* ./
+
+RUN npm install
+
+CMD [ "npm", "run", "start:dev" ]
