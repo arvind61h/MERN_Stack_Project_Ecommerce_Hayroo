@@ -9,8 +9,8 @@ pipeline{
         stage('Bulild-Docker-Image'){
             steps{
 
-                sh 'build -t 92840/client:${BUILD_NUMBER} -f Dockerfile.client'
-                sh 'docker build -t 92840/server:${BUILD_NUMBER} -f Dockerfile.server'
+                sh 'build -t 92840/client:${BUILD_NUMBER} -f Dockerfile.client .'
+                sh 'docker build -t 92840/server:${BUILD_NUMBER} -f Dockerfile.server .'
             }
         }
         stage('deploying-image-private-repo'){
