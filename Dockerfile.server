@@ -4,7 +4,7 @@ MAINTAINER devops0123@gmail.com
 
 #change working directory ifnot create
 WORKDIR /webapp/server
-
+#copy src
 COPY server/* ./
 
 RUN npm install
