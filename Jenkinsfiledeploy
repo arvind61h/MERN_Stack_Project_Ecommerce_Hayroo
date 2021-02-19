@@ -1,5 +1,5 @@
 pipeline{
-    agent (label 'deploymentServer')
+    agent {label 'deploymentServer'}
     stages{
         stage('scm-checkout'){
             steps{
