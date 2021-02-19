@@ -9,16 +9,16 @@ pipeline{
         stage('Bulild-Docker-Image'){
             steps{
 
-                sh 'build -t 92840/client:${BUILD_NUMBER} -f Dockerfile.client .'
-                sh 'docker build -t 92840/server:${BUILD_NUMBER} -f Dockerfile.server .'
+                sh 'docker build -t 92840/client:v${BUILD_NUMBER} -f Dockerfile.client .'
+                sh 'docker build -t 92840/server:v${BUILD_NUMBER} -f Dockerfile.server .'
             }
         }
         stage('deploying-image-private-repo'){
             steps{
 
                 sh 'docker login -u 92840 -p London@123'
-                sh 'docker push 92840/client:${BUILD_NUMBER}'
-                sh 'docker push 92840/server:${BUILD_NUMBER}'
+                sh 'docker push 92840/client:v${BUILD_NUMBER}'
+                sh 'docker push 92840/server:v${BUILD_NUMBER}'
             }
         }
     }
