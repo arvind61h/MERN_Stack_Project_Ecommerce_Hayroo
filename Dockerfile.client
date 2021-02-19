@@ -6,7 +6,7 @@ MAINTAINER ARVIND
 WORKDIR /webapp/client
 
 # copy src from host to container
-COPY client/* .
+COPY client/* ./
 
 RUN npm install
 
