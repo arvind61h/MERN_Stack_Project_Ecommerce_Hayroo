@@ -1,19 +1,19 @@
 pipeline{
-    agent (lable "build-server")
+    agent (label 'build-server')
     stages{
-        stage("scm-checkout"){
+        stage('scm-checkout'){
             steps{
                 git 'https://github.com/arvind61h/MERN_Stack_Project_Ecommerce_Hayroo.git'
             }
         }
-        stage("Bulild-Docker-Image"){
+        stage('Bulild-Docker-Image'){
             steps{
 
                 sh 'build -f Dockerfile.client -t 92840/client:${BUILD_NUMBER}'
                 sh 'docker build -f Dockerfile.server -t 92840/server:${BUILD_NUMBER}'
             }
         }
-        stage("deploying-image-private-repo"){
+        stage('deploying-image-private-repo'){
             steps{
 
                 sh 'docker login -u 92840 -p London@123'
